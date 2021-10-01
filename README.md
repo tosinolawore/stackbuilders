@@ -1,1 +1,1 @@
-# StackBuilders
+# StackBuilders [![CircleCI](https://circleci.com/gh/tosinolawore/stackbuilders/tree/master.svg?style=svg&circle-token=976d742215025739e0ddd09f77d827a4a15dc42e)](https://circleci.com/gh/tosinolawore/stackbuilders/tree/master)
