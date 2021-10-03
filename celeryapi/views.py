@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from tasks.task import generate_random_num
 from celery.result import AsyncResult
+from django.core.cache import cache
 
 class TaskCreateView(APIView):
     """
@@ -24,7 +25,22 @@ class TaskCreateView(APIView):
     def post(self, request, format=None):
         serializer = TaskSerializer(data=request.data)
         if serializer.is_valid():
+            
+            # get last saved task_id from cache
+            task_id = cache.get('task_id','')
+
+            # check if there's a current running task using fetched task_id. Return message if there is.
+            if task_id and AsyncResult(task_id).status == 'PENDING':
+                return Response({
+                    'message': 'Task could not be started as there can only be one per time. Please try again soon.'
+                })
+            
+            # generate random number asynchronously if serializer is valid 
             t = generate_random_num.delay()
+
+            # set asynchronous task_id in cache
+            cache.set('task_id', t.id, 150)
+            
             serializer.save(task_id=t.id)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
