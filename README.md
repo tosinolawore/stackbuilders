@@ -48,6 +48,8 @@ Edit or Update Task name - /tasks/<id>/ (METHOD: PUT, <id> - unique id or primar
 
 Delete a Task record - /tasks/<id>/ (METHOD: DELETE, <id> - unique id or primary key for the task for which record is to be deleted.)
 
+```
+
 RUN INSTRUCTIONS
 -------------------
 - Simply install dependencies in requirements.txt
