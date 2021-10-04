@@ -1,4 +1,4 @@
-# StackBuilders
+# StackBuilders [![CircleCI](https://circleci.com/gh/tosinolawore/stackbuilders/tree/master.svg?style=svg)](https://circleci.com/gh/tosinolawore/stackbuilders/tree/master)
 
 PROJECT DESCRIPTION
 --------------------
@@ -16,7 +16,7 @@ TEST PACKAGE
 -------------------
 Pytest
 ```
-To run test cases, simple enter 'pytest' in terminal.
+To run test cases, simply enter 'pytest' in terminal.
 ```
 
 CI/CD Tool
@@ -40,7 +40,7 @@ Add Trailing Slash
 ```
 Start Celery Task with some string - /tasks/ (METHOD: POST, DATA: name, FORMAT: JSON)
 
-Retrieve Task Result and Status - /tasks/<id>/ (METHOD: GET, <id> - unique id or primary key for the tasked. This is returned in the JSON response from above. NOTE: the <id> is not the task_id but the primary key of the Task saved in Database.)
+Retrieve Task Result and Status - /tasks/<id>/ (METHOD: GET, <id> - unique id or primary key for the task. This is returned in the JSON response from above. NOTE: the <id> is not the task_id but the primary key of the Task saved in Database.)
 
 List All Tasks - /tasks/ (METHOD: GET)
 

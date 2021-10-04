@@ -33,7 +33,7 @@ jobs:
           name: Run tests
           command: |
             . venv/bin/activate
-            pytest
+            pytest -v -k 'not api_start_task'
       - store_test_results:
           path: test-results
       - store_artifacts:
